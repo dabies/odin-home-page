@@ -1,1 +1,341 @@
+:root {
+    /* Primary color palette */
+    --deep-midnight-blue: #000021;
+    --navy-blue: #002147;
+    --royal-blue: #0057b8;
+    --sky-blue: #00a8e8;
+    --off-white: rgb(245,245,245);
+    --dim-paragraph: rgb(61, 61, 61)
+  
+    /* Gradient colors for footer */
+    --footer-gradient-start: #000428;
+    --footer-gradient-end: #004e92;
+  
+    /* Shadows for depth effects */
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+    --shadow-light: rgba(0, 0, 0, 0.5);
+  
+    /* Global text color */
+    --text-white: white;
+  }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--off-white);
+}
+
+header {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw;
+    border-radius: 5px;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgb(0, 0, 33), rgb(0, 33, 71)); /* Adjusted colors */
+    clip-path: polygon(0 90%, 0 0, 184% 0);
+    z-index: -1; /* Place behind other header content */
+}
+
+.header-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    color: var(--text-white);
+    font-size: 8vw;
+    transform: translate(-20%, -200%);
+}
+
+header img,
+.footer-main-img {
+    max-width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.header-text {
+    background-color: var(--off-white);
+    border: 1mm solid var(--navy-blue);
+    width: 100%;
+    padding: 5vw;
+    text-align: center;
+    font-size: 5vw;
+    margin-top: 5vw;
+}
+
+.header-social-links {
+    display: flex;
+    justify-content: end;
+    gap: 2vw;
+}
+
+p {
+    color: var(--dim-paragraph);
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.image-description h2 {
+    font-size: 8vw;
+    margin-bottom: 2vw;
+}
+
+.header-logo {
+    width: 14vw;
+    margin-top: 2vw;
+}
+
+.left-logo {
+    margin-left: 0;
+    transform: translate(3vw);
+}
+
+main {
+    padding: 5vw;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 10vw;
+    margin-bottom: 5vw;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.project-tile {
+    width: 30%;
+    margin-bottom: 8vw;
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 5px lightslategray;
+}
+
+.project {
+    background-color: var(--footer-gradient-end);
+    color: var(--text-white);
+    font-size: 7vw;
+    height: 45vw;
+    margin-bottom: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.project-description {
+    text-align: center;
+    position: relative;
+    height: 18vw;
+}
+
+.project-description h3 {
+    margin-bottom: 2vw;
+    font-size: 5vw;
+}
+
+.body-logo-github {
+    width: 8vw;
+    transform: translate(-4vw, -0.5vw);
+}
+
+.body-logo-github, .body-logo-open {
+    position: absolute;
+    top: 1vw;
+    right: 2vw;
+}
+
+.body-logo-open {
+    width: 4vw;
+}
+
+footer {
+    background-color: var(--footer-gradient-end);
+    padding: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+footer h2 {
+    font-size: 8vw;
+    color: var(--off-white);
+    margin-bottom: 3vw;
+}
+
+.footer-content {
+    width: 100%;
+    padding: 5vw;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.footer-logo {
+    width: 20vw;
+    margin-top: 2vw;
+}
+
+.right {
+    transform: translate(-5vw);
+}
+
+.turtle, .cat {
+    width: 5vw;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+@media (min-width: 501px) and (max-width: 2048px) {
+    header {
+        display: block; /* Important for float to work */
+        position: relative; /* Needed for absolute positioning of h1 */
+    }
+
+    .header-float-image {
+        width: 40%;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .header-text {
+        width: 55%;
+        float: right;
+    }
+
+    .header-text h1 {
+        font-size: 8vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translate(90%, -425%);
+        margin: 0;
+        z-index: 2;
+    }
+
+    .header-text h2 {
+        font-size: 6vw;
+    }
+
+    .header-text p {
+        font-size: 3vw;
+    }
+
+    .header-social-links {
+        display: flex;
+        justify-content: end;
+        gap: 2vw;
+    }
+
+    .header-logo {
+        width: 12vw;
+        margin-top: 2vw;
+    }
+
+    .left-logo {
+        margin-left: 0;
+        transform: translate(3vw);
+    }
+
+    .footer-main-img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    main h2 {
+        font-size: 9vw;
+    }
+
+    .project {
+        height: 35vw;
+        font-size: 6vw;
+    }
+
+    .project-tile {
+        flex-basis: calc(50% - 4vw);
+        margin: 2vw;
+    }
+
+    .project-description h3 {
+        transform: translate(-6vw);
+        font-size: 3vw;
+    }
+
+    .project-description p {
+        font-size: 2.5vw;
+        transform: translateY(2vw);
+    }
+
+    .body-logo-github {
+        transform: translate(-5vw, -2vw) scale(0.9);
+    }
+
+    .body-logo-open {
+        transform: translate(-2vw, -1.25vw) scale(0.8);
+    }
+
+    .footer-content {
+        max-width: 50%;
+    }
+
+    .footer-content p {
+        font-size: 2.5vw;
+    }
+
+    .footer-content h2 {
+        font-size: 6vw;
+    }
+
+    .footer-logo {
+        width: 10vw;
+        height: auto;
+    }
+
+    .right {
+        transform: translate(-2vw);
+    }
+
+    .turtle,
+    .cat {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 500px) {
+    .project-tile {
+        width: 100%;
+    }
+}
