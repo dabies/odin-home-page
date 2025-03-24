@@ -5,7 +5,7 @@
     --royal-blue: #0057b8;
     --sky-blue: #00a8e8;
     --off-white: rgb(245,245,245);
-    --dim-paragraph: rgb(61, 61, 61)
+    --dim-paragraph: rgb(61, 61, 61);
   
     /* Gradient colors for footer */
     --footer-gradient-start: #000428;
@@ -52,7 +52,7 @@ header::before {
     z-index: -1; /* Place behind other header content */
 }
 
-.header-image {
+.header-img-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,10 +64,10 @@ header::before {
 header h1 {
     color: var(--text-white);
     font-size: 8vw;
-    transform: translate(-20%, -200%);
+    transform: translate(-40%, -150%);
 }
 
-header img,
+.header-img-container img,
 .footer-main-img {
     max-width: 90%;
     height: auto;
@@ -81,13 +81,11 @@ header img,
     padding: 5vw;
     text-align: center;
     font-size: 5vw;
-    margin-top: 5vw;
 }
 
 .header-social-links {
     display: flex;
-    justify-content: end;
-    gap: 2vw;
+    justify-content: end
 }
 
 p {
@@ -105,7 +103,7 @@ p {
     margin-bottom: 2vw;
 }
 
-.header-logo {
+nav img {
     width: 14vw;
     margin-top: 2vw;
 }
@@ -133,7 +131,7 @@ main h2 {
 }
 
 .project-tile {
-    width: 30%;
+    width: 100%;
     margin-bottom: 8vw;
     border: 1px solid #ddd;
     padding: 15px;
@@ -191,6 +189,10 @@ footer {
     border-radius: 5px;
 }
 
+footer p {
+    color: var(--text-white);
+}
+
 footer h2 {
     font-size: 8vw;
     color: var(--off-white);
@@ -220,30 +222,33 @@ footer h2 {
 }
 
 @media (min-width: 501px) and (max-width: 2048px) {
-    header {
-        display: block; /* Important for float to work */
-        position: relative; /* Needed for absolute positioning of h1 */
+    .header-container {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
     }
 
-    .header-float-image {
-        width: 40%;
-        float: left;
-        margin-right: 20px;
+    .header-img-container {
+        width: 45vw;
+        position: relative;
+        margin-right: -25vw;
+        z-index: 1;
     }
 
     .header-text {
-        width: 55%;
-        float: right;
+        width: 80vw;
+        position: relative;
     }
 
-    .header-text h1 {
-        font-size: 8vw;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: translate(90%, -425%);
-        margin: 0;
+    .header-picture {
+        width: 100%;
+    }
+
+    .header-img-container h1 {
+        font-size: 7vw;
         z-index: 2;
+        color: var(--text-white);
+        transform: translate(0, -10vw)
     }
 
     .header-text h2 {
@@ -252,22 +257,23 @@ footer h2 {
 
     .header-text p {
         font-size: 3vw;
+        margin-left: 20vw;
+        shape-outside: polygon(0 0, 100% 0, 100% 100%, 25vw 100%); /* Add shape-outside */
+        shape-margin: 20px; /* Add margin around the shape */
+    }
+
+    nav img {
+        width: 12vw;
     }
 
     .header-social-links {
         display: flex;
-        justify-content: end;
-        gap: 2vw;
-    }
-
-    .header-logo {
-        width: 12vw;
-        margin-top: 2vw;
+        justify-content: flex-end;
+        margin-top: 4vw;
     }
 
     .left-logo {
-        margin-left: 0;
-        transform: translate(3vw);
+        transform: translateX(4vw);
     }
 
     .footer-main-img {
@@ -331,11 +337,5 @@ footer h2 {
     .turtle,
     .cat {
         transform: scale(0.9);
-    }
-}
-
-@media (max-width: 500px) {
-    .project-tile {
-        width: 100%;
     }
 }
